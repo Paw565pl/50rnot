@@ -2,10 +2,13 @@ from pathlib import Path
 
 import joblib
 import keras
+import numpy as np
 import pandas as pd
+from matplotlib import pyplot as plt
 from sklearn.calibration import LabelEncoder
 from sklearn.compose import make_column_transformer
 from sklearn.discriminant_analysis import StandardScaler
+from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 
@@ -114,3 +117,31 @@ history = model.fit(
 
 _, test_accuracy = model.evaluate(X_test, y_test, verbose="2")
 print(f"Model accuracy: {test_accuracy*100:.2f}%")
+
+# plots
+plt.plot(history.history["accuracy"])
+plt.plot(history.history["val_accuracy"])
+plt.title("model accuracy")
+plt.xlabel("epoch")
+plt.ylabel("accuracy")
+plt.legend(["train", "val"], loc="upper left")
+plt.savefig(PLOTS_DIR.joinpath("model_accuracy.png"))
+plt.clf()
+
+plt.plot(history.history["loss"])
+plt.plot(history.history["val_loss"])
+plt.title("model loss")
+plt.xlabel("epoch")
+plt.ylabel("loss")
+plt.legend(["train", "val"], loc="upper left")
+plt.savefig(PLOTS_DIR.joinpath("model_loss.png"))
+plt.clf()
+
+# confiusion matrix
+y_pred = np.round(model.predict(X_test))
+cm = confusion_matrix(y_test, y_pred)
+disp = ConfusionMatrixDisplay(
+    confusion_matrix=cm, display_labels=label_encoder.classes_
+)
+disp.plot()
+plt.savefig(PLOTS_DIR.joinpath("confusion_matrix.png"))
