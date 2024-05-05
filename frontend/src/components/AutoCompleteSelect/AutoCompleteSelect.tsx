@@ -1,6 +1,11 @@
 import { ReactNode } from "react";
 import ReactSelect, { GroupBase, Props } from "react-select";
 
+interface Option {
+  value: string;
+  label: string;
+}
+
 interface AutoCompleteSelect<
   Option,
   IsMulti extends boolean = false,
@@ -12,7 +17,7 @@ interface AutoCompleteSelect<
 const AutoCompleteSelect = ({
   label,
   ...props
-}: AutoCompleteSelect<ReactNode>) => {
+}: AutoCompleteSelect<Option>) => {
   return (
     <label className="form-control w-full">
       <div className="label">
@@ -22,12 +27,12 @@ const AutoCompleteSelect = ({
         unstyled
         classNames={{
           control: (state) =>
-            `select select-bordered w-full ${
+            `text-xs select select-bordered w-full ${
               state.isFocused && "border-primary"
             }`,
           option: (state) =>
             `tab text-left ${state.isFocused && "tab-active bg-primary"}`,
-          menuList: () => "mt-2",
+          menuList: () => "mt-2 bg-base-200",
         }}
         closeMenuOnSelect
         isSearchable
@@ -35,6 +40,7 @@ const AutoCompleteSelect = ({
         components={{
           DropdownIndicator: null,
         }}
+        placeholder="Select an option"
         {...props}
       />
     </label>
