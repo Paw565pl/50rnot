@@ -1,12 +1,10 @@
 from pathlib import Path
 
 import joblib
-import keras
 import pandas as pd
 from sklearn.calibration import LabelEncoder
 from sklearn.compose import make_column_transformer
 from sklearn.discriminant_analysis import StandardScaler
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 
 DATASET_LOCATION = Path("./data/adult.csv")
@@ -45,72 +43,3 @@ joblib.dump(preprocessor, ARTIFACTS_DIR.joinpath("preprocessor.joblib"))
 label_encoder = LabelEncoder()
 y_encoded = label_encoder.fit_transform(y)
 joblib.dump(label_encoder, ARTIFACTS_DIR.joinpath("label_encoder.joblib"))
-
-X_train, X_test, y_train, y_test = train_test_split(X_encoded, y_encoded, test_size=0.3)
-
-features_amount = X_train.shape[1]
-model = keras.models.Sequential()
-
-model.add(keras.layers.Input(shape=(features_amount,)))
-model.add(
-    keras.layers.Dense(
-        32,
-        activation="relu",
-    )
-)
-model.add(keras.layers.Dropout(0.25))
-model.add(
-    keras.layers.Dense(
-        32,
-        activation="relu",
-    )
-)
-model.add(keras.layers.Dropout(0.25))
-model.add(
-    keras.layers.Dense(
-        64,
-        activation="relu",
-    )
-)
-model.add(keras.layers.Dropout(0.25))
-model.add(
-    keras.layers.Dense(
-        64,
-        activation="relu",
-    )
-)
-model.add(keras.layers.Dropout(0.25))
-model.add(
-    keras.layers.Dense(
-        128,
-        activation="relu",
-    )
-)
-model.add(keras.layers.Dropout(0.25))
-model.add(
-    keras.layers.Dense(
-        128,
-        activation="relu",
-    )
-)
-model.add(keras.layers.Dropout(0.5))
-model.add(keras.layers.Dense(1, activation="sigmoid"))
-
-model.compile(optimizer="adamw", loss="binary_crossentropy", metrics=["accuracy"])
-
-checkpoint = keras.callbacks.ModelCheckpoint(
-    ARTIFACTS_DIR.joinpath("model.keras"),
-    monitor="val_loss",
-    verbose=1,
-    save_best_only=True,
-    mode="min",
-    save_weights_only=False,
-)
-
-callbacks = [checkpoint]
-history = model.fit(
-    X_train, y_train, epochs=30, validation_data=(X_test, y_test), callbacks=callbacks
-)
-
-_, test_accuracy = model.evaluate(X_test, y_test, verbose="2")
-print(f"Model accuracy: {test_accuracy*100:.2f}%")
