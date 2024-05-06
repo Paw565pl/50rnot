@@ -12,7 +12,7 @@ const FormInput = ({ label, ...props }: FormInputProps) => {
       </div>
       <input
         {...props}
-        className="input input-bordered w-full focus:outline-none focus:border-primary"
+        className="input input-bordered w-full focus:outline-none focus:border-primary text-sm"
       />
     </label>
   );
