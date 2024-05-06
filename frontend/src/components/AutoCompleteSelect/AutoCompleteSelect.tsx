@@ -27,12 +27,13 @@ const AutoCompleteSelect = ({
         unstyled
         classNames={{
           control: (state) =>
-            `text-xs select select-bordered w-full ${
+            `text-sm select select-bordered w-full ${
               state.isFocused && "border-primary"
             }`,
           option: (state) =>
             `tab text-left ${state.isFocused && "tab-active bg-primary"}`,
           menuList: () => "mt-2 bg-base-200",
+          input: () => "max-w-1",
         }}
         closeMenuOnSelect
         isSearchable
