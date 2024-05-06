@@ -1,0 +1,153 @@
+{
+  "workclass": [
+    { "value": "?", "label": "Unknown" },
+    { "value": "Private", "label": "Private" },
+    { "value": "State-gov", "label": "State Government" },
+    { "value": "Federal-gov", "label": "Federal Government" },
+    {
+      "value": "Self-emp-not-inc",
+      "label": "Self Employed (Not Incorporated)"
+    },
+    {
+      "value": "Self-emp-inc",
+      "label": "Self Employed (Incorporated)"
+    },
+    { "value": "Local-gov", "label": "Local Government" },
+    { "value": "Without-pay", "label": "Without Pay" },
+    { "value": "Never-worked", "label": "Never Worked" }
+  ],
+  "education": [
+    { "value": "HS-grad", "label": "High School Graduate" },
+    { "value": "Some-college", "label": "Some College" },
+    { "value": "7th-8th", "label": "7th-8th Grade" },
+    { "value": "10th", "label": "10th Grade" },
+    { "value": "Doctorate", "label": "Doctorate Degree" },
+    { "value": "Prof-school", "label": "Professional School" },
+    { "value": "Bachelors", "label": "Bachelor's Degree" },
+    { "value": "Masters", "label": "Master's Degree" },
+    { "value": "11th", "label": "11th Grade" },
+    { "value": "Assoc-acdm", "label": "Associate's Degree (Academic)" },
+    {
+      "value": "Assoc-voc",
+      "label": "Associate's Degree (Vocational)"
+    },
+    { "value": "1st-4th", "label": "1st-4th Grade" },
+    { "value": "5th-6th", "label": "5th-6th Grade" },
+    { "value": "12th", "label": "12th Grade" },
+    { "value": "9th", "label": "9th Grade" },
+    { "value": "Preschool", "label": "Preschool" }
+  ],
+  "marital_status": [
+    { "value": "Widowed", "label": "Widowed" },
+    { "value": "Divorced", "label": "Divorced" },
+    { "value": "Separated", "label": "Separated" },
+    { "value": "Never-married", "label": "Never Married" },
+    {
+      "value": "Married-civ-spouse",
+      "label": "Married (Civilian Spouse)"
+    },
+    {
+      "value": "Married-spouse-absent",
+      "label": "Married (Spouse Absent)"
+    },
+    {
+      "value": "Married-AF-spouse",
+      "label": "Married (Armed Forces Spouse)"
+    }
+  ],
+  "occupation": [
+    { "value": "?", "label": "Unknown" },
+    { "value": "Exec-managerial", "label": "Executive Managerial" },
+    {
+      "value": "Machine-op-inspct",
+      "label": "Machine Operator/Inspector"
+    },
+    { "value": "Prof-specialty", "label": "Professional Specialty" },
+    { "value": "Other-service", "label": "Other Service" },
+    { "value": "Adm-clerical", "label": "Administrative Clerical" },
+    { "value": "Craft-repair", "label": "Craft Repair" },
+    {
+      "value": "Transport-moving",
+      "label": "Transportation and Moving"
+    },
+    { "value": "Handlers-cleaners", "label": "Handlers and Cleaners" },
+    { "value": "Sales", "label": "Sales" },
+    { "value": "Farming-fishing", "label": "Farming and Fishing" },
+    { "value": "Tech-support", "label": "Technical Support" },
+    { "value": "Protective-serv", "label": "Protective Service" },
+    { "value": "Armed-Forces", "label": "Armed Forces" },
+    { "value": "Priv-house-serv", "label": "Private Household Service" }
+  ],
+  "relationship": [
+    { "value": "Not-in-family", "label": "Not in Family" },
+    { "value": "Unmarried", "label": "Unmarried" },
+    { "value": "Own-child", "label": "Own Child" },
+    { "value": "Other-relative", "label": "Other Relative" },
+    { "value": "Husband", "label": "Husband" },
+    { "value": "Wife", "label": "Wife" }
+  ],
+  "race": [
+    { "value": "White", "label": "White" },
+    { "value": "Black", "label": "Black" },
+    {
+      "value": "Asian-Pac-Islander",
+      "label": "Asian Pacific Islander"
+    },
+    { "value": "Other", "label": "Other" },
+    {
+      "value": "Amer-Indian-Eskimo",
+      "label": "American Indian or Alaska Native"
+    }
+  ],
+  "sex": [
+    { "value": "Female", "label": "Female" },
+    { "value": "Male", "label": "Male" }
+  ],
+  "native_country": [
+    { "value": "United-States", "label": "United States of America" },
+    { "value": "?", "label": "Unknown" },
+    { "value": "Mexico", "label": "Mexico" },
+    { "value": "Greece", "label": "Greece" },
+    { "value": "Vietnam", "label": "Vietnam" },
+    { "value": "China", "label": "China" },
+    { "value": "Taiwan", "label": "Taiwan" },
+    { "value": "India", "label": "India" },
+    { "value": "Philippines", "label": "Philippines" },
+    { "value": "Trinadad&Tobago", "label": "Trinidad and Tobago" },
+    { "value": "Canada", "label": "Canada" },
+    { "value": "South", "label": "South" },
+    { "value": "Holand-Netherlands", "label": "Holland-Netherlands" },
+    { "value": "Puerto-Rico", "label": "Puerto Rico" },
+    { "value": "Poland", "label": "Poland" },
+    { "value": "Iran", "label": "Iran" },
+    { "value": "England", "label": "England" },
+    { "value": "Germany", "label": "Germany" },
+    { "value": "Italy", "label": "Italy" },
+    { "value": "Japan", "label": "Japan" },
+    { "value": "Hong", "label": "Hong Kong" },
+    { "value": "Honduras", "label": "Honduras" },
+    { "value": "Cuba", "label": "Cuba" },
+    { "value": "Ireland", "label": "Ireland" },
+    { "value": "Cambodia", "label": "Cambodia" },
+    { "value": "Peru", "label": "Peru" },
+    { "value": "Nicaragua", "label": "Nicaragua" },
+    { "value": "Dominican-Republic", "label": "Dominican Republic" },
+    { "value": "Haiti", "label": "Haiti" },
+    { "value": "El-Salvador", "label": "El Salvador" },
+    { "value": "Hungary", "label": "Hungary" },
+    { "value": "Columbia", "label": "Colombia" },
+    { "value": "Guatemala", "label": "Guatemala" },
+    { "value": "Jamaica", "label": "Jamaica" },
+    { "value": "Ecuador", "label": "Ecuador" },
+    { "value": "France", "label": "France" },
+    { "value": "Yugoslavia", "label": "Yugoslavia" },
+    { "value": "Scotland", "label": "Scotland" },
+    { "value": "Portugal", "label": "Portugal" },
+    { "value": "Laos", "label": "Laos" },
+    { "value": "Thailand", "label": "Thailand" },
+    {
+      "value": "Outlying-US(Guam-USVI-etc)",
+      "label": "Outlying U.S. (Guam, U.S. Virgin Islands, etc.)"
+    }
+  ]
+}
