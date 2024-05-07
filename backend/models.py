@@ -113,3 +113,8 @@ class ModelInput(BaseModel):
         "Thailand",
         "Outlying-US(Guam-USVI-etc)",
     ]
+
+
+class Prediction(BaseModel):
+    prediction: Literal["<=50K", ">50K"]
+    probability: float
