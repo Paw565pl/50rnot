@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import selectInputs from "../../data/selectInputs.json";
+import useSendFormData from "../../hooks/useSendFormData";
 import formSchema, { FormValues } from "../../schemas/formSchema";
 import AutoCompleteSelect from "../AutoCompleteSelect";
 import FormInput from "../FormInput";
@@ -14,8 +15,12 @@ const Form = () => {
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
   });
+  const { mutate: sendFormData, isPending } = useSendFormData();
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<FormValues> = (formData) =>
+    sendFormData(formData, {
+      onSuccess: (response) => alert(response.probability),
+    });
 
   return (
     <form className="space-y-2" onSubmit={handleSubmit(onSubmit)}>
@@ -70,6 +75,7 @@ const Form = () => {
         <AutoCompleteSelect
           label="Workclass"
           options={selectInputs.workclass}
+          maxMenuHeight={250}
           name="workclass"
           control={control}
           error={errors.workclass}
@@ -77,17 +83,18 @@ const Form = () => {
         <AutoCompleteSelect
           label="Occupation"
           options={selectInputs.occupation}
+          maxMenuHeight={250}
           name="occupation"
           control={control}
           error={errors.occupation}
         />
+      </div>
+      <div className="md:flex md:justify-between md:space-x-2">
         <FormInput
           label="Work hours per week"
           register={register("hours_per_week")}
           error={errors.hours_per_week}
         />
-      </div>
-      <div className="md:flex md:justify-between md:space-x-2">
         <FormInput
           label="Capital gain ($)"
           register={register("capital_gain")}
