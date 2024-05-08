@@ -12,7 +12,7 @@ const Form = () => {
     register,
     control,
     handleSubmit,
-    reset,
+    reset: resetFormState,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -20,11 +20,17 @@ const Form = () => {
   const {
     data: prediction,
     mutate: sendFormData,
+    reset: resetPrediction,
     isPending,
   } = useSendFormData();
 
   const onSubmit: SubmitHandler<FormValues> = (formData) =>
     sendFormData(formData);
+
+  const resetForm = () => {
+    resetFormState();
+    resetPrediction();
+  };
 
   return (
     <form className="space-y-2" onSubmit={handleSubmit(onSubmit)}>
@@ -122,7 +128,7 @@ const Form = () => {
         <button
           type="button"
           className="btn btn-secondary"
-          onClick={() => reset()}
+          onClick={() => resetForm()}
         >
           Reset
         </button>

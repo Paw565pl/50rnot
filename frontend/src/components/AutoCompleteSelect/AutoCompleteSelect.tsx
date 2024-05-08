@@ -39,10 +39,9 @@ const AutoCompleteSelect = ({
         render={({ field: { value, onChange, ...field } }) => (
           <ReactSelect
             {...field}
-            value={options.find((option) => option.value === value)}
+            value={options.find((option) => option.value === value) || null}
             onChange={(option) => onChange(option?.value)}
             unstyled
-            key={value}
             classNames={{
               control: (state) =>
                 `text-sm select select-bordered w-full ${
