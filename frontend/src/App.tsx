@@ -5,7 +5,7 @@ const App = () => {
   return (
     <>
       <NavBar />
-      <main className="mx-auto container lg:w-1/2 px-2 my-8">
+      <main className="mx-auto container px-2 lg:px-0 lg:w-3/4 xl:w-1/2 my-8">
         <Form />
       </main>
     </>

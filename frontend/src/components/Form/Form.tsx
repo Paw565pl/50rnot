@@ -35,14 +35,22 @@ const Form = () => {
   return (
     <form className="space-y-2" onSubmit={handleSubmit(onSubmit)}>
       <div className="md:flex md:justify-between md:space-x-2">
-        <FormInput label="Age" register={register("age")} error={errors.age} />
-        <AutoCompleteSelect
-          label="Sex"
-          options={selectInputs.sex}
-          name="sex"
-          control={control}
-          error={errors.sex}
-        />
+        <div className="flex space-x-2 justify-between w-full">
+          <div className="w-full md:w-1/2">
+            <FormInput
+              label="Age"
+              register={register("age")}
+              error={errors.age}
+            />
+          </div>
+          <AutoCompleteSelect
+            label="Sex"
+            options={selectInputs.sex}
+            name="sex"
+            control={control}
+            error={errors.sex}
+          />
+        </div>
         <AutoCompleteSelect
           label="Race"
           options={selectInputs.race}
