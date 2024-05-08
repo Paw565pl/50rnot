@@ -42,6 +42,7 @@ const AutoCompleteSelect = ({
             value={options.find((option) => option.value === value)}
             onChange={(option) => onChange(option?.value)}
             unstyled
+            key={value}
             classNames={{
               control: (state) =>
                 `text-sm select select-bordered w-full ${

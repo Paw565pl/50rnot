@@ -11,16 +11,19 @@ const Form = () => {
     register,
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
   });
-  const { mutate: sendFormData, isPending } = useSendFormData();
+  const {
+    data: prediction,
+    mutate: sendFormData,
+    isPending,
+  } = useSendFormData();
 
   const onSubmit: SubmitHandler<FormValues> = (formData) =>
-    sendFormData(formData, {
-      onSuccess: (response) => alert(response.probability),
-    });
+    sendFormData(formData);
 
   return (
     <form className="space-y-2" onSubmit={handleSubmit(onSubmit)}>
@@ -71,7 +74,7 @@ const Form = () => {
           error={errors.relationship}
         />
       </div>
-      <div className="lg:flex md:justify-between lg:space-x-2">
+      <div className="md:flex md:justify-between md:space-x-2">
         <AutoCompleteSelect
           label="Workclass"
           options={selectInputs.workclass}
@@ -114,11 +117,15 @@ const Form = () => {
         control={control}
         error={errors.native_country}
       />
-      <div className="flex justify-between pt-2">
-        <button type="reset" className="btn btn-secondary">
+      <div className="flex justify-between items-center pt-2 space-x-4">
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={() => reset()}
+        >
           Reset
         </button>
-        <button type="submit" className="btn btn-accent">
+        <button type="submit" className="btn btn-accent" disabled={isPending}>
           Submit
         </button>
       </div>
