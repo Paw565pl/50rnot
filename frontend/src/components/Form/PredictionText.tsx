@@ -16,7 +16,7 @@ const PredictionText = ({ prediction }: PredictionTextProps) => {
   return (
     <span
       className={`text-sm sm:text-base md:text-lg xl:text-xl text-center ${
-        isPredictionPositive ? "text-success" : "text-error"
+        isPredictionPositive ? "text-success" : "text-warning"
       }`}
       role="alert"
     >

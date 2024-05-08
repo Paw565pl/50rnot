@@ -21,6 +21,8 @@ const Form = () => {
     data: prediction,
     mutate: sendFormData,
     reset: resetPrediction,
+    isSuccess,
+    isError,
     isPending,
   } = useSendFormData();
 
@@ -140,7 +142,12 @@ const Form = () => {
         >
           Reset
         </button>
-        <PredictionText prediction={prediction} />
+        {isError && (
+          <span role="alert" className="text-error text-sm sm:text-base">
+            Something went wrong! Try again later.
+          </span>
+        )}
+        {isSuccess && <PredictionText prediction={prediction} />}
         <button type="submit" className="btn btn-accent" disabled={isPending}>
           Submit
         </button>
