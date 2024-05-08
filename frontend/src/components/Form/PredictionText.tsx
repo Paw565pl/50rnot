@@ -14,7 +14,12 @@ const PredictionText = ({ prediction }: PredictionTextProps) => {
     : `Oops! There is ${probability}% chance that you are earning less than 50K $ a year. 😥`;
 
   return (
-    <span className={isPredictionPositive ? "text-success" : "text-error"}>
+    <span
+      className={`text-sm sm:text-base md:text-lg xl:text-xl text-center ${
+        isPredictionPositive ? "text-success" : "text-error"
+      }`}
+      role="alert"
+    >
       {message}
     </span>
   );
