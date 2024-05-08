@@ -2,13 +2,17 @@ import { useEffect, useState } from "react";
 import { themeChange } from "theme-change";
 
 const ThemeSwitch = () => {
-  const lightTheme = "bumblebee";
+  const lightTheme = "emerald";
   const darkTheme = "dark";
 
-  const [isDark, setIsDark] = useState<boolean>(false);
+  const [isDark, setIsDark] = useState<boolean>(
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
   useEffect(() => {
-    const isSavedThemeDark =
-      localStorage.getItem("theme") === darkTheme ? true : false;
+    const hasSavedPreference = localStorage.getItem("theme");
+    if (!hasSavedPreference) return;
+
+    const isSavedThemeDark = hasSavedPreference === darkTheme ? true : false;
     setIsDark(isSavedThemeDark);
   }, []);
   useEffect(() => themeChange(false), []);
