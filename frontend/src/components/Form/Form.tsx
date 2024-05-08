@@ -5,6 +5,7 @@ import useSendFormData from "../../hooks/useSendFormData";
 import formSchema, { FormValues } from "../../schemas/formSchema";
 import AutoCompleteSelect from "../AutoCompleteSelect";
 import FormInput from "../FormInput";
+import PredictionText from "./PredictionText";
 
 const Form = () => {
   const {
@@ -125,6 +126,7 @@ const Form = () => {
         >
           Reset
         </button>
+        <PredictionText prediction={prediction} />
         <button type="submit" className="btn btn-accent" disabled={isPending}>
           Submit
         </button>
