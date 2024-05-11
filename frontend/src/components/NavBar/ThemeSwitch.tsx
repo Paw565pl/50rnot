@@ -6,7 +6,7 @@ const ThemeSwitch = () => {
   const darkTheme = "dark";
 
   const [isDark, setIsDark] = useState<boolean>(
-    window.matchMedia("(prefers-color-scheme: dark)").matches
+    window.matchMedia("(prefers-color-scheme: dark)").matches,
   );
   useEffect(() => {
     const hasSavedPreference = localStorage.getItem("theme");
@@ -29,7 +29,7 @@ const ThemeSwitch = () => {
 
       {/* sun icon */}
       <svg
-        className={`${isDark ? "swap-on" : "swap-off"} fill-current w-10 h-10`}
+        className={`${isDark ? "swap-on" : "swap-off"} h-10 w-10 fill-current`}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
@@ -38,7 +38,7 @@ const ThemeSwitch = () => {
 
       {/* moon icon */}
       <svg
-        className={`${isDark ? "swap-off" : "swap-on"} fill-current w-10 h-10`}
+        className={`${isDark ? "swap-off" : "swap-on"} h-10 w-10 fill-current`}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >

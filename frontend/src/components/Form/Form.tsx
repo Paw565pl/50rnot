@@ -37,7 +37,7 @@ const Form = () => {
   return (
     <form className="space-y-2" onSubmit={handleSubmit(onSubmit)}>
       <div className="md:flex md:justify-between md:space-x-2">
-        <div className="flex space-x-2 justify-between w-full">
+        <div className="flex w-full justify-between space-x-2">
           <div className="w-full md:w-1/2">
             <FormInput
               label="Age"
@@ -134,7 +134,7 @@ const Form = () => {
         control={control}
         error={errors.native_country}
       />
-      <div className="flex justify-between items-center pt-2 space-x-4">
+      <div className="flex items-center justify-between space-x-4 pt-2">
         <button
           type="button"
           className="btn btn-secondary"
@@ -143,7 +143,7 @@ const Form = () => {
           Reset
         </button>
         {isError && (
-          <span role="alert" className="text-error text-sm sm:text-base">
+          <span role="alert" className="text-sm text-error sm:text-base">
             Something went wrong! Try again later.
           </span>
         )}

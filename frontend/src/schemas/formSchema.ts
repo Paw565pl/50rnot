@@ -8,7 +8,7 @@ const zodStringNumber = (fieldName: string) =>
     .transform(Number)
     .refine(
       (value) => Number.isInteger(value),
-      `${fieldName} must be an integer`
+      `${fieldName} must be an integer`,
     )
     .refine((value) => value >= 0, `${fieldName} must be a nonnegative number`);
 

@@ -11,7 +11,7 @@ interface Option {
 interface AutoCompleteSelect<
   Option,
   IsMulti extends boolean = false,
-  Group extends GroupBase<Option> = GroupBase<Option>
+  Group extends GroupBase<Option> = GroupBase<Option>,
 > extends Props<Option, IsMulti, Group> {
   label: ReactNode;
   options: Option[];

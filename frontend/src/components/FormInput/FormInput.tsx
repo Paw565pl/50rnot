@@ -15,7 +15,7 @@ const FormInput = ({ label, register, error, ...props }: FormInputProps) => {
         <span className="label-text">{label}</span>
       </div>
       <input
-        className="input input-bordered w-full focus:outline-none focus:border-primary text-sm"
+        className="input input-bordered w-full text-sm focus:border-primary focus:outline-none"
         {...props}
         {...register}
       />
