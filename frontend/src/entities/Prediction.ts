@@ -1,5 +1,5 @@
 interface Prediction {
-  prediction: string;
+  prediction: "<=50K" | ">50K";
   probability: number;
 }
 
