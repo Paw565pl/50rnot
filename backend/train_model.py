@@ -116,7 +116,7 @@ history = model.fit(
 )
 
 _, test_accuracy = model.evaluate(X_test, y_test, verbose="2")
-print(f"Model accuracy: {test_accuracy*100:.2f}%")
+print(f"Model accuracy: {test_accuracy*100:.2f}%")  # about 85 %
 
 # plots
 plt.plot(history.history["accuracy"])
