@@ -1,7 +1,7 @@
 import Prediction from "../../entities/Prediction";
 
 interface PredictionTextProps {
-  prediction: Prediction | undefined;
+  prediction?: Prediction;
 }
 
 const PredictionText = ({ prediction }: PredictionTextProps) => {
@@ -15,7 +15,7 @@ const PredictionText = ({ prediction }: PredictionTextProps) => {
 
   return (
     <span
-      className={`text-center text-sm sm:text-base md:text-lg xl:text-xl ${
+      className={`text-center sm:text-lg lg:text-xl ${
         isPredictionPositive ? "text-success" : "text-warning"
       }`}
       role="alert"
