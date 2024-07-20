@@ -12,7 +12,7 @@ const zodStringNumber = (fieldName: string) =>
     )
     .refine((value) => value >= 0, `${fieldName} must be a nonnegative number`);
 
-const formSchema = z.object({
+const predictionSchema = z.object({
   age: zodStringNumber("Age"),
   workclass: z.string({ required_error: "Workclass is required" }).trim(),
   education: z.string({ required_error: "Education level is required" }).trim(),
@@ -34,6 +34,6 @@ const formSchema = z.object({
     .trim(),
 });
 
-export type FormValues = z.infer<typeof formSchema>;
+export type PredictionValues = z.infer<typeof predictionSchema>;
 
-export default formSchema;
+export default predictionSchema;

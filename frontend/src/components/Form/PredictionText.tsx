@@ -1,4 +1,4 @@
-import Prediction from "../../entities/Prediction";
+import Prediction from "../../entities/prediction";
 
 interface PredictionTextProps {
   prediction?: Prediction;

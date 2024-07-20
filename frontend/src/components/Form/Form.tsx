@@ -1,8 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import selectInputs from "../../data/selectInputs.json";
-import useSendFormData from "../../hooks/useSendFormData";
-import formSchema, { FormValues } from "../../schemas/formSchema";
+import useMakePrediction from "../../hooks/useMakePrediction";
+import predictionSchema, {
+  PredictionValues,
+} from "../../schemas/predictionSchema";
 import AutoCompleteSelect from "../AutoCompleteSelect";
 import FormInput from "../FormInput";
 import PredictionText from "./PredictionText";
@@ -14,8 +16,8 @@ const Form = () => {
     handleSubmit,
     reset: resetFormState,
     formState: { errors },
-  } = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
+  } = useForm<PredictionValues>({
+    resolver: zodResolver(predictionSchema),
   });
   const {
     data: prediction,
@@ -24,9 +26,9 @@ const Form = () => {
     isSuccess,
     isError,
     isPending,
-  } = useSendFormData();
+  } = useMakePrediction();
 
-  const onSubmit: SubmitHandler<FormValues> = (formData) =>
+  const onSubmit: SubmitHandler<PredictionValues> = (formData) =>
     sendFormData(formData);
 
   const resetForm = () => {
