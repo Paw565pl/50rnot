@@ -2,7 +2,7 @@
 
 ### What is it?
 
-It is a web app for predicting if your yearly income exceeds 50K $ or not. It uses tensorflow model under the hood for making predictions based on user's input. Model was trained on [this](https://www.kaggle.com/datasets/uciml/adult-census-income) dataset. Results are served to the end user via web server and displayed in the browser.
+It is a web app for predicting if your yearly income exceeds 50k $ or not. It uses tensorflow model under the hood for making predictions based on user's input. Model was trained on [this](https://www.kaggle.com/datasets/uciml/adult-census-income) dataset. Results are served to the end user via web server and displayed in the browser by the react app.
 
 ### Tech stack
 
@@ -18,7 +18,7 @@ It is a web app for predicting if your yearly income exceeds 50K $ or not. It us
 It is fairly simple thanks to docker. Simply run this command after **cloning the repository**.
 
 ```bash
-docker compose up --build -d
+docker compose up --build
 ```
 
 That's all! Now simply hit [http://localhost:8080](http://localhost:8080) and explore.
