@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "adult-proj-test"
+name = "backend"
 version = "0.1.0"
 description = ""
 authors = ["Paw565pl <paw565pl@gmail.com>"]
