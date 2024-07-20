@@ -15,6 +15,7 @@ interface AutoCompleteSelect<
 > extends Props<Option, IsMulti, Group> {
   label: ReactNode;
   options: Option[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>;
   name: string;
   error?: FieldError;
@@ -29,6 +30,7 @@ const AutoCompleteSelect = ({
   ...props
 }: AutoCompleteSelect<Option>) => {
   return (
+    // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className="form-control w-full">
       <div className="label">
         <span className="label-text">{label}</span>
